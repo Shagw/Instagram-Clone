@@ -6,6 +6,9 @@ const PORT =5000;
 //aGhglohc8mqDLma7
 
 require('./models/user')
+app.use(express.json());
+app.use(require('./routes/auth'))
+
 
 mongoose.connect(MONGOURI,({
     useNewUrlParser:true,
