@@ -1,10 +1,8 @@
-const e = require('express');
 const express = require('express');
 const mongoose = require('mongoose');
 const bycrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const {JWT_SECRET}  =require('../keys')
-const requireLogin = require('../middlleware/requiredLogin');
 const requiredLogin = require('../middlleware/requiredLogin');
 
 
