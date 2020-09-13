@@ -42,4 +42,29 @@ router.post('/signup',(req,res)=>{
     })
 })
 
+
+router.post('/signin',(req,res)=>{
+    const {email,password}  =req.body;
+    if(!email || !password){
+        return res.status(422).json({error:'Invalid Email or Password!'})
+    }
+    User.findOne({email:email})
+    .then(savedUser=>{
+        if(!savedUser){
+            return res.status(422).json({error:'Invalid Email or Password!'})
+        }
+        bycrypt.compare(password,savedUser.password)
+        .then(domatch=>{
+            if(domatch){
+                res.json({message:"Successfully signed in!"})
+            }
+            else{
+                return res.status(422).json({error:"Invalid Email or Password!"})
+            }
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    })
+})
 module.exports = router
