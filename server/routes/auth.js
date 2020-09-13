@@ -4,13 +4,20 @@ const mongoose = require('mongoose');
 const bycrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const {JWT_SECRET}  =require('../keys')
+const requireLogin = require('../middlleware/requiredLogin');
+const requiredLogin = require('../middlleware/requiredLogin');
+
 
 const User = mongoose.model("User")
 
 const router = express.Router();
 
-router.get('/',(req,res)=>{
+router.get('/',requiredLogin,(req,res)=>{
     res.send("Hello World 123!")
+})
+
+router.get('/protected',(req,res)=>{
+    res.send("Hello User!")
 })
 
 router.post('/signup',(req,res)=>{
