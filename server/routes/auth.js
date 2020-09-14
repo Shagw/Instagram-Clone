@@ -12,10 +12,12 @@ const router = express.Router();
 
 router.get('/',requiredLogin,(req,res)=>{
     res.send("Hello World 123!")
+    console.log(req.user)
 })
 
-router.get('/protected',(req,res)=>{
+router.get('/protected',requiredLogin,(req,res)=>{
     res.send("Hello User!")
+    console.log(req.user._id)
 })
 
 router.post('/signup',(req,res)=>{
