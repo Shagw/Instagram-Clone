@@ -20,9 +20,10 @@ const NavbarComponent = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div>
+    <div >
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">Instagram</NavbarBrand>
+          <div className="container" style={{width:"65%"}}>
+        <NavbarBrand href="/" className="brand-logo">Instagram</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
@@ -56,7 +57,8 @@ const NavbarComponent = (props) => {
             </UncontrolledDropdown> */}
           </Nav>
           {/* <NavbarText>Simple Text</NavbarText> */}
-        </Collapse>
+        </Collapse>       
+        </div>
       </Navbar>
     </div>
   );
