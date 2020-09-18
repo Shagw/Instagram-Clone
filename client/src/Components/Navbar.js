@@ -38,6 +38,9 @@ const NavbarComponent = (props) => {
             <NavItem>
               <NavLink to="/profile" className="nav-link">Profile</NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink to="/createposts" className="nav-link">Create Posts</NavLink>
+            </NavItem>
             {/* <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 Profile
